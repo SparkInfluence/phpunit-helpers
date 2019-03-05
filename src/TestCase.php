@@ -32,7 +32,7 @@ abstract class TestCase extends BaseTestCase
             return;
         }
         $ds = DIRECTORY_SEPARATOR;
-        $root = explode($ds . 'wsd-', preg_replace('@[/\\]+@', $ds, __DIR__))[0];
+        $root = explode($ds . 'wsd-', preg_replace('@[/\\\\]+@', $ds, __DIR__))[0];
         $trailing = trim(str_replace($root, '', __DIR__), $ds);
         self::$basePath = $root . $ds . explode($ds, $trailing)[0] . $ds;
     }
