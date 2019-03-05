@@ -4,6 +4,7 @@ namespace WSD\Spark\PhpUnitHelpers;
 
 use function Brain\Monkey\Functions\stubs;
 use function Brain\Monkey\Functions\when;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use function Brain\Monkey\tearDown as tearDownBrainMonkey;
 use function Brain\Monkey\setUp as setUpBrainMonkey;
@@ -11,6 +12,8 @@ use WSD\Spark\PhpUnitHelpers\Constraints\ExpectationsMet;
 
 abstract class TestCase extends BaseTestCase
 {
+
+    use MockeryPHPUnitIntegration;
 
     protected static $filesToLoad = null;
     protected static $globalsFromLoadedFiles = null;
