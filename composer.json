@@ -1,14 +1,22 @@
 {
-    "require": {
-        "brain/monkey": "^2.2",
-        "phpunit/phpunit": ">=6.5"
-    },
-    "config": {
-        "platform": {
-            "php": "7.0.33"
-        },
-        "preferred-install": "dist",
-        "sort-packages": true,
-        "optimize-autoloader": true
+  "name": "sparkinfluence/phpunit-helpers",
+  "description": "A library of helpers for our unit tests",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "WSD\\Spark\\PhpUnitHelpers\\": "./src/"
     }
+  },
+  "require": {
+    "brain/monkey": "^2.2",
+    "phpunit/phpunit": ">=6.5"
+  },
+  "config": {
+    "platform": {
+      "php": "7.0.33"
+    },
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
 }
