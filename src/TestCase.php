@@ -107,4 +107,14 @@ abstract class TestCase extends BaseTestCase
         $this->assertThat(null, (new ExpectationsMet)->constraint(), $message);
     }
 
+    /**
+     * @before
+     * @after
+     */
+    public static function cleanGlobalScope()
+    {
+        unset($GLOBALS['wpdb'], $GLOBALS['post']);
+        $_GET = $_POST = $_REQUEST = [];
+    }
+
 }
