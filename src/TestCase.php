@@ -131,4 +131,60 @@ abstract class TestCase extends BaseTestCase
         self::realCleanGlobalScope();
     }
 
+    public function mockWpPost(array $data = []): \WP_Post
+    {
+        $data += [
+            'ID' => mt_rand(1, 999),
+            'post_author' => 0,
+            'post_name' => '',
+            'post_type' => '',
+            'post_title' => '',
+            'post_date' => '',
+            'post_date_gmt' => '',
+            'post_content' => '',
+            'post_excerpt' => '',
+            'post_status' => '',
+            'comment_status' => '',
+            'ping_status' => '',
+            'post_password' => '',
+            'post_parent' => 0,
+            'post_modified' => '',
+            'post_modified_gmt' => '',
+            'comment_count' => 0,
+            'menu_order' => 0,
+        ];
+        $post = \Mockery::mock('WP_Post');
+        foreach ($data as $key => $value) {
+            $post->{$key} = $value;
+        }
+        return $post;
+    }
+
+    public function mockWpUser(array $data = []): \WP_User
+    {
+        $data += [
+            'ID' => mt_rand(1, 999),
+            'caps' => [],
+            'cap_key' => '',
+            'roles' => [],
+            'allcaps' => [],
+            'first_name' => '',
+            'last_name' => '',
+            'user_login' => '',
+            'user_pass' => '',
+            'user_nicename' => '',
+            'user_email' => '',
+            'user_url' => '',
+            'user_registered' => '',
+            'user_activation_key' => '',
+            'user_status' => '',
+            'display_name' => '',
+        ];
+        $user = \Mockery::mock('WP_User');
+        foreach ($data as $key => $value) {
+            $user->{$key} = $value;
+        }
+        return $user;
+    }
+
 }
