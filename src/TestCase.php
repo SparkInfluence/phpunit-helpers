@@ -107,14 +107,28 @@ abstract class TestCase extends BaseTestCase
         $this->assertThat(null, (new ExpectationsMet)->constraint(), $message);
     }
 
-    /**
-     * @before
-     * @after
-     */
-    public static function cleanGlobalScope()
+    private static function realCleanGlobalScope()
     {
         unset($GLOBALS['wpdb'], $GLOBALS['post']);
         $_GET = $_POST = $_REQUEST = [];
+    }
+
+    /**
+     * @beforeClass
+     */
+    public static function cleanGlobalScopeBeforeClass()
+    {
+        self::realCleanGlobalScope();
+    }
+
+    /**
+     * Keep this function as the last "after" function to avoid unexpected state
+     *
+     * @after
+     */
+    public static function cleanGlobalScopeAfterTests()
+    {
+        self::realCleanGlobalScope();
     }
 
 }
