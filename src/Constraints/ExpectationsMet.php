@@ -14,7 +14,7 @@ class ExpectationsMet
     {
         try {
             Mockery::getContainer()->mockery_verify();
-        } catch (Exception $e) {
+        } catch (Exception) {
             return false;
         }
 

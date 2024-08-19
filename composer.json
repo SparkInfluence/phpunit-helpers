@@ -8,13 +8,11 @@
     }
   },
   "require": {
+    "php": ">=8.1.0",
     "brain/monkey": "^2.2",
-    "phpunit/phpunit": ">=6.5"
+    "phpunit/phpunit": ">=7.0"
   },
   "config": {
-    "platform": {
-      "php": "7.0.33"
-    },
     "preferred-install": "dist",
     "sort-packages": true,
     "optimize-autoloader": true
